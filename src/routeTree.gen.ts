@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as ResearchRouteImport } from './routes/research'
 import { Route as EmailRouteImport } from './routes/email'
 import { Route as ChatbotRouteImport } from './routes/chatbot'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 
 const ResearchRoute = ResearchRouteImport.update({
@@ -29,6 +30,11 @@ const ChatbotRoute = ChatbotRouteImport.update({
   path: '/chatbot',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -37,12 +43,14 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/chatbot': typeof ChatbotRoute
   '/email': typeof EmailRoute
   '/research': typeof ResearchRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/chatbot': typeof ChatbotRoute
   '/email': typeof EmailRoute
   '/research': typeof ResearchRoute
@@ -50,20 +58,22 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/chatbot': typeof ChatbotRoute
   '/email': typeof EmailRoute
   '/research': typeof ResearchRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/chatbot' | '/email' | '/research'
+  fullPaths: '/' | '/about' | '/chatbot' | '/email' | '/research'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/chatbot' | '/email' | '/research'
-  id: '__root__' | '/' | '/chatbot' | '/email' | '/research'
+  to: '/' | '/about' | '/chatbot' | '/email' | '/research'
+  id: '__root__' | '/' | '/about' | '/chatbot' | '/email' | '/research'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
   ChatbotRoute: typeof ChatbotRoute
   EmailRoute: typeof EmailRoute
   ResearchRoute: typeof ResearchRoute
@@ -92,6 +102,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ChatbotRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -104,6 +121,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
   ChatbotRoute: ChatbotRoute,
   EmailRoute: EmailRoute,
   ResearchRoute: ResearchRoute,
