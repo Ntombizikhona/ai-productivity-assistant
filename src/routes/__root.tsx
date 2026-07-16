@@ -83,9 +83,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: "Workplace AI — Productivity Assistant" },
       { name: "description", content: "AI-powered workplace productivity: email generator, research assistant, and chatbot. No sign-in required." },
       { property: "og:title", content: "Workplace AI — Productivity Assistant" },
-      { property: "og:description", content: "Generate emails, summarize research, and chat with an AI workplace assistant." },
+      { property: "og:description", content: "AI-powered workplace productivity: email generator, research assistant, and chatbot. No sign-in required." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Workplace AI — Productivity Assistant" },
+      { name: "twitter:description", content: "AI-powered workplace productivity: email generator, research assistant, and chatbot. No sign-in required." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/89f12622-1b82-41ae-8a3e-9fd458b40d0d/id-preview-1346cb1b--dfff9691-757f-4298-bf69-b9a3f3ebe5dc.lovable.app-1784208823636.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/89f12622-1b82-41ae-8a3e-9fd458b40d0d/id-preview-1346cb1b--dfff9691-757f-4298-bf69-b9a3f3ebe5dc.lovable.app-1784208823636.png" },
     ],
     links: [
       {
